@@ -18,6 +18,7 @@
 		"tailwindcss": "^3.3.2"
 	},
 	"devDependencies": {
+		"@smui/data-table": "^7.0.0-beta.8",
 		"@typescript-eslint/eslint-plugin": "^5.59.8",
 		"@typescript-eslint/parser": "^5.59.8",
 		"eslint": "^8.41.0",

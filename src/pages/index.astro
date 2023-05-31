@@ -1,14 +1,13 @@
 ---
 // Component Imports
-import Counter from '@components/Counter.svelte'
+import ComponentsTable from '@components/Layout/ComponentsTable.svelte'
 import Layout from '@components/Layout/LayoutWrapper.astro'
+import { Components } from '../assets/components'
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <Layout>
-  <Counter client:visible>
-    <h1>Hello, Svelte!</h1>
-  </Counter>
+  <ComponentsTable components={Components} />
 </Layout>
