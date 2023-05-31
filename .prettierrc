@@ -8,6 +8,6 @@
 	"importOrder": ["<THIRD_PARTY_MODULES>", "^[./]"],
 	"importOrderSeparation": true,
 	"importOrderSortSpecifiers": true,
-	"plugins": ["prettier-plugin-astro", "prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
+	"plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss", "prettier-plugin-svelte"],
 	"pluginSearchDirs": false
 }
