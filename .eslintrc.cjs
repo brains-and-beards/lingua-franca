@@ -4,6 +4,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:prettier/recommended',
         "plugin:svelte/recommended",
+        "plugin:astro/recommended",
     ],
     plugins: ['@typescript-eslint', 'prettier', 'eslint-comments', ],
     env: {
