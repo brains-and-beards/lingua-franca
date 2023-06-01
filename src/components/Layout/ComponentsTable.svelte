@@ -1,29 +1,45 @@
 <script lang="ts">
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
+  import type { IComponent } from "@assets/components";
 
-  export let components
+  export let components: Array<IComponent>
 </script>
 
-<DataTable table$aria-label="People list" style="max-width: 100%;">
+<DataTable table$aria-label="Components list" style="max-width: 80%">
   <Head>
-    <Row>
-      <Cell>reactNativeName</Cell>
-      <Cell>iOSComponent</Cell>
-      <Cell>androidComponent</Cell>
-      <Cell>webComponent</Cell>
-      <Cell>reactNativeImplementation</Cell>
-      <Cell>comments</Cell>
+    <Row class="border-2">
+      <Cell class="w-1/5 border-2">reactNativeName</Cell>
+      <Cell class="w-1/5 border-2">iOSComponent</Cell>
+      <Cell class="w-1/5 border-2">androidComponent</Cell>
+      <Cell class="w-1/5 border-2">webComponent</Cell>
+      <Cell class="w-1/5 border-2">reactNativeImplementation</Cell>
+      <Cell class="w-1/5 border-2">comments</Cell>
     </Row>
   </Head>
   <Body>
     {#each components as el}
-      <Row>
-        <Cell>{el.reactNativeName}</Cell>
-        <Cell>{el.iOSComponent.name}</Cell>
-        <Cell>{el.androidComponent.name}</Cell>
-        <Cell>{el.webComponent.name}</Cell>
-        <Cell>{el.reactNativeImplementation.join('\n')}</Cell>
-        <Cell>{el.comments.map(comp => comp.text)}</Cell>
+      <Row class="flex-auto justify-center align-middle">
+        <Cell class="flex justify-center align-middle">{el.reactNativeName}</Cell>
+        <Cell class="flex-auto justify-center align-middle">{el.iOSComponent.name}</Cell>
+        <Cell class="flex-auto justify-center align-middle">{el.androidComponent.name}</Cell>
+        <Cell class="flex-auto justify-center align-middle">{el.webComponent.name}</Cell>
+
+        <Cell class="flex-auto justify-center align-middle">
+          {#each el.reactNativeImplementation as implementation}
+            <p>{implementation}</p>
+          {/each}
+        </Cell>
+        <Cell class="flex flex-1 flex-auto justify-center align-middle">
+          {#each el.comments as comment}
+            {#if comment.variant === 'caution'}
+              <p class="bg-red-500">{comment.text}</p>
+            {:else if comment.variant === 'warning'}
+              <p class="bg-yellow-400">{comment.text}</p>
+              {:else }
+              <p>{comment.text}</p>
+            {/if}
+          {/each}
+        </Cell>
       </Row>
     {/each}
   </Body>
