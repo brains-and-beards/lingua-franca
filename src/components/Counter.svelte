@@ -1,12 +1,12 @@
 <script lang="ts">
-	let count = 0;
+	let count = 0
 
 	function add() {
-		count += 1;
+		count += 1
 	}
 
 	function subtract() {
-		count -= 1;
+		count -= 1
 	}
 </script>
 
