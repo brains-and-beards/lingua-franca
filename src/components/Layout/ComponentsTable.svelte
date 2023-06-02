@@ -5,15 +5,15 @@
   export let components: Array<IComponent>
 </script>
 
-<DataTable table$aria-label="Components list" style="max-width: 80%">
+<DataTable table$aria-label="Components list"  class="max-w-75[vw] justify-center">
   <Head>
     <Row class="border-2">
-      <Cell class="w-1/5 border-2">reactNativeName</Cell>
-      <Cell class="w-1/5 border-2">iOSComponent</Cell>
-      <Cell class="w-1/5 border-2">androidComponent</Cell>
-      <Cell class="w-1/5 border-2">webComponent</Cell>
-      <Cell class="w-1/5 border-2">reactNativeImplementation</Cell>
-      <Cell class="w-1/5 border-2">comments</Cell>
+      <Cell class="w-1/5 border-2 max-w-1/5">React Native Name</Cell>
+      <Cell class="w-1/5 border-2 max-w-1/5">iOS Component</Cell>
+      <Cell class="w-1/5 border-2 max-w-1/5">Android Component</Cell>
+      <Cell class="w-1/5 border-2 max-w-1/5">Web Component</Cell>
+      <Cell class="w-1/5 border-2 max-w-1/5">React Native Implementation</Cell>
+      <Cell class="w-1/5 border-2 max-w-1/5">Comments</Cell>
     </Row>
   </Head>
   <Body>
@@ -35,7 +35,7 @@
               <p class="bg-red-500">{comment.text}</p>
             {:else if comment.variant === 'warning'}
               <p class="bg-yellow-400">{comment.text}</p>
-              {:else }
+            {:else }
               <p>{comment.text}</p>
             {/if}
           {/each}
