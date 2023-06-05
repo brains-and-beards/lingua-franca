@@ -48,6 +48,10 @@ import AndroidSlider from '@assets/components/androidSlider.png'
 import IOSPageControl from '@assets/components/iOSPageControl.png'
 import IOSTextField from '@assets/components/iOSTextField.png'
 import AndroidTextField from '@assets/components/androidTextField.png'
+import IOSAccordion from '@assets/components/iOSAccordion.png'
+import AndroidAccordion from '@assets/components/androidAccordion.png'
+import IOSDrilldown from '@assets/components/iOSDrilldown.png'
+import IOSRevealDetails from '@assets/components/iOSRevealDetails.png'
 
 interface IPlatformComponent {
   name: string
@@ -734,5 +738,66 @@ export const Components: Array<IComponent> = [
           'We will keep designs and behavior consistent across platforms.'
       }
     ]
-  }
+  },
+  {
+    reactNativeName: 'list item / actionable / accordion',
+    iOSComponent: {
+      name: 'Disclosure group',
+      image: IOSAccordion
+    },
+    androidComponent: {
+      name: 'Expansion list item (formerly known as expansion panel)',
+      image: AndroidAccordion
+    },
+    reactNativeImplementation: [
+      {
+        text: 'React Native Elements',
+        link: 'https://reactnativeelements.com/docs/components/listitem_accordion'
+      }
+    ],
+    comments: []
+  },
+  {
+    reactNativeName: 'list item / actionable / drill-down',
+    iOSComponent: {
+      name: 'Disclosure group',
+      image: IOSDrilldown
+    },
+    androidComponent: {
+      name: 'n/a'
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: 'A disclosure indicator reveals the next level in a hierarchy; it doesn’t show details about the item.'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'list item / actionable / reveal details',
+    iOSComponent: {
+      name: 'List item with detailButton',
+      image: IOSRevealDetails
+    },
+    androidComponent: {
+      name: 'n/a'
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: 'An info button shows details about a list item; it doesn’t enable navigation.'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'list item / regular',
+    iOSComponent: {
+      name: 'n/a'
+    },
+    androidComponent: {
+      name: 'n/a'
+    },
+    reactNativeImplementation: [],
+    comments: []
+  },
 ]
