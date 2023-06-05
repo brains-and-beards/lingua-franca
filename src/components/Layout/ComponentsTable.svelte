@@ -24,42 +24,51 @@
         <Cell class="p-2">
           <div class="flex flex-col  items-center">
             {el.iOSComponent.name}
-            <img src={el.iOSComponent.image} class='w-[100%] h-[100%] max-h-[300px] max-w-[200px] '>
+            {#if el.iOSComponent.image}
+              <img src={el.iOSComponent.image} class='w-[100%] h-[100%] max-h-[300px] max-w-[200px]' alt='{el.iOSComponent.name}'>
+            {/if}
           </div>
         </Cell>
         <Cell class="p-2">
 
           <div class="flex flex-col  items-center">
             {el.androidComponent.name}
-            <img src={el.androidComponent.image} class='w-[100%] h-[100%] max-h-[300px] max-w-[200px] '>
+            {#if el.androidComponent.image}
+              <img src={el.androidComponent.image} class=' max-h-[200px] max-w-[100px]' alt={el.androidComponent.name}>
+            {/if}
           </div>
 
         </Cell>
         <Cell class="p-2">
-          <div class="flex flex-col  items-center">
-          {#each el.reactNativeImplementation as implementation}
-            <a href={implementation.link} class="text-blue-600 after:content-['_↗']">
-              {implementation.text}
-            </a>
-          {/each}
+          <div class="flex flex-col items-start">
+            {#if el.reactNativeImplementation?.length > 0}
+              {#each el.reactNativeImplementation as implementation}
+                <a href={implementation.link} class="text-blue-600 after:content-['_↗']">
+                  {implementation.text}
+                </a>
+              {/each}
+              {:else}
+              <p>/</p>
+            {/if}
           </div>
         </Cell>
         <Cell class="p-2">
           {#each el.comments as comment}
             {#if comment.variant === 'caution'}
               <div class="bg-[#FD7E1468] flex p-2">
-                <img src={WarningIcon} class='w-[25px] mr-2'/>
-                <p >{comment.text}</p>
+                <img src={WarningIcon} class='w-[25px] h-[25px] mr-2'/>
+                <p>{comment.text}</p>
               </div>
             {:else if comment.variant === 'warning'}
               <div class="bg-[#FD7E143A] flex p-2">
-                <img src={WarningIcon} class='w-[25px] mr-2'/>
-                <p >{comment.text}</p>
+                <img src={WarningIcon} class='w-[25px] h-[25px] mr-2'/>
+
+                <p>{comment.text}</p>
               </div>
             {:else if comment.variant === 'info'}
               <div class="bg-[#228BE656] flex p-2">
-                <img src={InfoIcon} class='w-[25px] mr-2'/>
-                <p >{comment.text}</p>
+                <img src={InfoIcon} class='w-[25px] h-[25px] mr-2'/>
+                <p>{comment.text}</p>
               </div>
             {:else }
               <p>{comment.text}</p>
