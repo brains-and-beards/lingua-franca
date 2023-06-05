@@ -31,6 +31,11 @@ import IOSSearchBar from '@assets/components/iOSSearchBar.png'
 import IOSHomeIndicator from '@assets/components/iOSHomeIndicator.png'
 import IOSStatusBar from '@assets/components/iOSStatusBar.png'
 import AndroidStatusBar from '@assets/components/androidStatusBar.png'
+import IOSGrabber from '@assets/components/iOSGrabber.png'
+import AndroidChips from '@assets/components/androidChips.png'
+import IOSDropdownButton from '@assets/components/iOSDropdownButton.png'
+import AndroidDropdownButton from '@assets/components/androidDropdownButton.png'
+import AndroidFloatingButton from '@assets/components/androidFloatingButton.png'
 
 interface IPlatformComponent {
   name: string
@@ -498,6 +503,79 @@ export const Components: Array<IComponent> = [
       {
         text: 'While some android phones have an “android navigation bar” as part of the display itself, the area covered by it is not included in the viewport.',
         variant: 'info'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'button / utility / grabber',
+    iOSComponent: {
+      name: 'Grabber',
+      image: IOSGrabber
+    },
+    androidComponent: {
+      name: 'n/a'
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: 'Should not be used on Android because it is not recognized by the platform as an interaction element',
+        variant: 'caution'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'button / utility / chip',
+    iOSComponent: {
+      name: 'n/a'
+    },
+    androidComponent: {
+      name: 'Chips',
+      image: AndroidChips
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: 'Although non-existent on iOS, will be used on both platforms because it is a well recognized interactive element',
+        variant: 'caution'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'button / utility / dropdown menu',
+    iOSComponent: {
+      name: 'Pull down button',
+      image: IOSDropdownButton
+    },
+    androidComponent: {
+      name: 'Ellipsis button',
+      image: AndroidDropdownButton
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: 'Note the different orientation of the ellipsis of both platforms (horizontal/vertical)',
+        variant: 'info'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'n/a',
+    iOSComponent: {
+      name: 'n/a'
+    },
+    androidComponent: {
+      name: 'Floating action button',
+      image: AndroidFloatingButton
+    },
+    reactNativeImplementation: [
+      {
+        text: 'Floating Action Button',
+        link: 'https://reactnativeelements.com/docs/3.4.2/fab'
+      }
+    ],
+    comments: [
+      {
+        text: 'Although a non-existent on iOS, its function is unambiguous, so it will be used on both platforms. It’s use will be prominent in Canvas screens. However, we will not explicitly define it as a special type. It is still either a CTA or Utility button, but simply floats over content, rather than being part of the layout itself',
       }
     ]
   },
