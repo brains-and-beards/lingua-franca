@@ -36,6 +36,18 @@ import AndroidChips from '@assets/components/androidChips.png'
 import IOSDropdownButton from '@assets/components/iOSDropdownButton.png'
 import AndroidDropdownButton from '@assets/components/androidDropdownButton.png'
 import AndroidFloatingButton from '@assets/components/androidFloatingButton.png'
+import AndroidSwitch from '@assets/components/androidSwitch.png'
+import IOSSWitch from '@assets/components/iOSSwitch.png'
+import IOSRadio from '@assets/components/iOSRadio.png'
+import AndroidRadio from '@assets/components/androidRadio.png'
+import IOSCheckbox from '@assets/components/iOSCheckbox.png'
+import AndroidCheckbox from '@assets/components/androidCheckbox.png'
+import IOSStepper from '@assets/components/iOSStepper.png'
+import IOSSlider from '@assets/components/iOSSlider.png'
+import AndroidSlider from '@assets/components/androidSlider.png'
+import IOSPageControl from '@assets/components/iOSPageControl.png'
+import IOSTextField from '@assets/components/iOSTextField.png'
+import AndroidTextField from '@assets/components/androidTextField.png'
 
 interface IPlatformComponent {
   name: string
@@ -457,7 +469,7 @@ export const Components: Array<IComponent> = [
       {
         text: 'React Native Paper',
         link: 'https://callstack.github.io/react-native-paper/docs/components/Searchbar/'
-      },
+      }
     ],
     comments: [
       {
@@ -575,8 +587,152 @@ export const Components: Array<IComponent> = [
     ],
     comments: [
       {
-        text: 'Although a non-existent on iOS, its function is unambiguous, so it will be used on both platforms. It’s use will be prominent in Canvas screens. However, we will not explicitly define it as a special type. It is still either a CTA or Utility button, but simply floats over content, rather than being part of the layout itself',
+        text: 'Although a non-existent on iOS, its function is unambiguous, so it will be used on both platforms. It’s use will be prominent in Canvas screens. However, we will not explicitly define it as a special type. It is still either a CTA or Utility button, but simply floats over content, rather than being part of the layout itself'
       }
     ]
   },
+  {
+    reactNativeName: 'input / control / switch',
+    iOSComponent: {
+      name: 'Toggle',
+      image: IOSSWitch
+    },
+    androidComponent: {
+      name: 'Switch',
+      image: AndroidSwitch
+    },
+    reactNativeImplementation: [
+      {
+        text: 'React Native',
+        link: 'https://reactnative.dev/docs/switch'
+      }
+    ],
+    comments: []
+  },
+  {
+    reactNativeName: 'input / control / radio',
+    iOSComponent: {
+      name: 'Radio',
+      image: IOSRadio
+    },
+    androidComponent: {
+      name: 'Radio button',
+      image: AndroidRadio
+    },
+    reactNativeImplementation: [
+      {
+        text: 'React Native Paper',
+        link: 'https://callstack.github.io/react-native-paper/docs/components/RadioButton/'
+      }
+    ],
+    comments: [
+      {
+        text: 'on iOS no official component, multiple other patterns are used: checkmarks (not explicitly defined as a component, rather they are created from a list component with an checkmark accessory); segmented controls',
+        variant: 'info'
+      },
+      {
+        text: 'In the case of radio input controls, we will cater to both platforms independently by utilizing the native patterns in terms of looks, and functionality'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'input / control / checkbox',
+    iOSComponent: {
+      name: 'Checkbox',
+      image: IOSCheckbox
+    },
+    androidComponent: {
+      name: 'Checkbox',
+      image: AndroidCheckbox
+    },
+    reactNativeImplementation: [
+      {
+        text: '@react-native-community/checkbox',
+        link: 'https://github.com/react-native-checkbox/react-native-checkbox'
+      }
+    ],
+    comments: [
+      {
+        text: 'Similarly to radio buttons, iOS doesn’t explicitly define a checkbox as a component, but it is present in its native Notes and Reminder apps, among others.',
+        variant: 'info'
+      },
+      {
+        text: 'In the case of checkbox input controls, we will cater to both platforms independently by utilizing the native patterns. Here the pattern only applies to the shape of the checkbox, while the functionality is the same'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'input / control / stepper',
+    iOSComponent: {
+      name: 'Stepper',
+      image: IOSStepper
+    },
+    androidComponent: {
+      name: 'n/a'
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: 'Stepper is a useful component that will be designed in a same way for both platforms. It will be used on Android (although non-existent natively), because it’s use is unambiguous.'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'input / control / slider',
+    iOSComponent: {
+      name: 'Slider',
+      image: IOSSlider
+    },
+    androidComponent: {
+      name: 'Slider',
+      image: AndroidSlider
+    },
+    reactNativeImplementation: [
+      {
+        text: '@miblanchard/react-native-slider',
+        link: 'https://github.com/miblanchard/react-native-slider'
+      }
+    ],
+    comments: [
+      {
+        text: 'Stepper is a useful component that will be designed in a same way for both platforms. It will be used on Android (although non-existent natively), because it’s use is unambiguous.',
+        variant: 'info'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'input / control / page control',
+    iOSComponent: {
+      name: 'Page control',
+      image: IOSPageControl
+    },
+    androidComponent: {
+      name: 'n/a'
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: 'Well known pattern because it is also used extensively on the web, so we would use it on Android as well.'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'input / field / text field',
+    iOSComponent: {
+      name: 'Text field (various native implementations):',
+      image: IOSTextField
+    },
+    androidComponent: {
+      name: 'Text field',
+      image: AndroidTextField
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text:
+          'the “…” represents the type of the field from the list above. \n' +
+          'We will keep designs and behavior consistent across platforms.'
+      }
+    ]
+  }
 ]
