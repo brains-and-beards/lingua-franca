@@ -52,6 +52,12 @@ import IOSAccordion from '@assets/components/iOSAccordion.png'
 import AndroidAccordion from '@assets/components/androidAccordion.png'
 import IOSDrilldown from '@assets/components/iOSDrilldown.png'
 import IOSRevealDetails from '@assets/components/iOSRevealDetails.png'
+import IOSProgressBar from '@assets/components/iOSProgressBar.png'
+import AndroidProgressBar from '@assets/components/androidProgressBar.png'
+import IOSActivityIndicator from '@assets/components/iOSActivityIndicator.png'
+import AndroidActivityIndicator from '@assets/components/androidActivityIndicator.png'
+import IOSPushNotification from '@assets/components/iOSPushNotification.png'
+import AndroidPushNotification from '@assets/components/androidPushNotification.png'
 
 interface IPlatformComponent {
   name: string
@@ -800,4 +806,58 @@ export const Components: Array<IComponent> = [
     reactNativeImplementation: [],
     comments: []
   },
+  {
+    reactNativeName: 'indicator / progress',
+    iOSComponent: {
+      name: 'Progress bar',
+      image: IOSProgressBar
+    },
+    androidComponent: {
+      name: 'Linear indicator (determinate or indeterminate)',
+      image: AndroidProgressBar
+    },
+    reactNativeImplementation: [
+      {
+        text: 'React Native Paper',
+        link: 'https://callstack.github.io/react-native-paper/docs/components/ProgressBar/'
+      }
+    ],
+    comments: []
+  },
+  {
+    reactNativeName: 'indicator / activity',
+    iOSComponent: {
+      name: 'Activity indicators',
+      image: IOSActivityIndicator
+    },
+    androidComponent: {
+      name: 'Circular (determinate or indeterminate)',
+      image: AndroidActivityIndicator
+    },
+    reactNativeImplementation: [
+      {
+        text: 'React Native',
+        link: 'https://reactnative.dev/docs/activityindicator'
+      }
+    ],
+    comments: []
+  },
+  {
+    reactNativeName: 'notification/external',
+    iOSComponent: {
+      name: 'User notification (push)',
+      image: IOSPushNotification
+    },
+    androidComponent: {
+      name: 'Android notifications',
+      image: AndroidPushNotification
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: 'These are notifications rendered by the native platform, outside of the app. For in app notifications we can utilize banners and snackbars.',
+        variant: 'info'
+      }
+    ]
+  }
 ]
