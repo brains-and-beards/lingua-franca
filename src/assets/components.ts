@@ -12,6 +12,15 @@ import iOSModalDatePicker from '@assets/components/iOSModalDatePicker.png'
 import AndroidModalDatePicker from '@assets/components/androidModalDatePicker.png'
 import AndroidModalTimePicker from '@assets/components/androidModalTimePicker.png'
 import iOSModalTimePicker from '@assets/components/iOSModalDatePicker.png'
+import IOSSheet from '@assets/components/iOSSheet.png'
+import AndroidSheet from '@assets/components/androidSheet.png'
+import AndroidDropdown from '@assets/components/androidDropdown.png'
+import IOSDropdown from '@assets/components/iOSDropdown.png'
+import IOSEditMenu from '@assets/components/iOSEditMenu.png'
+import AndroidEditMenu from '@assets/components/androidEditMenu.png'
+import AndroidSnackBar from '@assets/components/androidSnackbar.png'
+import AndroidBanner from '@assets/components/androidBanner.png'
+
 interface IPlatformComponent {
   name: string
   image?: string
@@ -217,6 +226,114 @@ export const Components: Array<IComponent> = [
       {
         text: 'Design of Time Pickers will be different across platforms: on iOS we will utilize the native time picker, while for Android we will make a custom design that follows the layout of the default Material component',
         variant: 'caution'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'dialog / non-modal / sheet',
+    iOSComponent: {
+      name: 'Non-modal sheet',
+      image: IOSSheet
+    },
+    androidComponent: {
+      name: 'Standard bottom sheet',
+      image: AndroidSheet
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: 'Design of non-modal Sheets will be common across platforms',
+        variant: 'info'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'dialog / non-modal / dropdown menu',
+    iOSComponent: {
+      name: 'Menu',
+      image: IOSDropdown
+    },
+    androidComponent: {
+      name: 'Dropdown menu',
+      image: AndroidDropdown
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: 'Design of Dropdown Menus will be different across platforms: on iOS we will utilize the menu component, while for Android we will make a custom design that follows the layout of the default Material component',
+        variant: 'caution'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'dialog / non-modal / edit menu',
+    iOSComponent: {
+      name: 'Edit menu',
+      image: IOSEditMenu
+    },
+    androidComponent: {
+      name: 'n/a*',
+      image: AndroidEditMenu
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: '*Material doesn’t recognize this as a native component.'
+      },
+      {
+        text: 'Design of Edit Menus will be different across platforms as we will utilize the native components',
+        variant: 'caution'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'dialog / non-modal / snackbar',
+    iOSComponent: {
+      name: 'n/a*'
+    },
+    androidComponent: {
+      name: 'Snackbar',
+      image: AndroidSnackBar
+    },
+    reactNativeImplementation: [
+      {
+        text: 'React Native Snackbar',
+        link: 'https://github.com/cooperka/react-native-snackbar'
+      }
+    ],
+    comments: [
+      {
+        text: 'Snackbars disappear automatically after a timeout, although the user can dismiss them ahead of the timeout either by pressing a designated button on them, or swiping them away.'
+      },
+      {
+        text: '*iOS does not recognize a component like this as an interaction pattern'
+      },
+      {
+        text: 'Design of Snackbars will be common across platforms',
+        variant: 'info'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'dialog / non-modal / banner',
+    iOSComponent: {
+      name: 'n/a*'
+    },
+    androidComponent: {
+      name: 'Banner',
+      image: AndroidBanner
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: 'Banners remain persistent in the interface until dismissed by the user. They can also be ignored by the user.'
+      },
+      {
+        text: '*iOS does not recognize a component like this as an interaction pattern'
+      },
+      {
+        text: 'Design of Banners will be common across platforms',
+        variant: 'info'
       }
     ]
   }
