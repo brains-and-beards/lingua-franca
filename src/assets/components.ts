@@ -20,6 +20,17 @@ import IOSEditMenu from '@assets/components/iOSEditMenu.png'
 import AndroidEditMenu from '@assets/components/androidEditMenu.png'
 import AndroidSnackBar from '@assets/components/androidSnackbar.png'
 import AndroidBanner from '@assets/components/androidBanner.png'
+import AndroidNavigationBar from '@assets/components/AndroidNavigationBar.png'
+import IOSNavigationBar from '@assets/components/iOSNavigationBar.png'
+import IOSTabBar from '@assets/components/iOSTabBar.png'
+import AndroidTabBar from '@assets/components/AndroidTabBar.png'
+import IOSTabs from '@assets/components/iOSTabs.png'
+import AndroidTabs from '@assets/components/androidTabs.png'
+import AndroidSearchBar from '@assets/components/androidSearchBar.png'
+import IOSSearchBar from '@assets/components/iOSSearchBar.png'
+import IOSHomeIndicator from '@assets/components/iOSHomeIndicator.png'
+import IOSStatusBar from '@assets/components/iOSStatusBar.png'
+import AndroidStatusBar from '@assets/components/androidStatusBar.png'
 
 interface IPlatformComponent {
   name: string
@@ -336,5 +347,158 @@ export const Components: Array<IComponent> = [
         variant: 'info'
       }
     ]
-  }
+  },
+  {
+    reactNativeName: 'bar / header',
+    iOSComponent: {
+      name: 'Navigation bar',
+      image: IOSNavigationBar
+    },
+    androidComponent: {
+      name: 'Navigation bar',
+      image: AndroidNavigationBar
+    },
+    reactNativeImplementation: [
+      {
+        text: 'React Navigation',
+        link: 'https://reactnavigation.org/docs/headers/'
+      },
+      {
+        text: 'React Native Elements',
+        link: 'https://reactnativeelements.com/docs/1.2.0/header'
+      }
+    ],
+    comments: [
+      {
+        text: 'iOS and Android’s choice of calling what essentially is a header, a “navigation bar” is misleading because the term “navigation” is also used to name other types of bars, and it implies its function without being specific. In relation to a page, the bar is a header, and the header can have multiple functions besides navigation (e.g. search, confirmation, closing, etc)'
+      },
+      {
+        text: 'Design of Headers will be common across platforms, with a minor in how the “Back” button looks',
+        variant: 'warning'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'bar / top-level navigation',
+    iOSComponent: {
+      name: 'Tab bar',
+      image: IOSTabBar
+    },
+    androidComponent: {
+      name: 'Bottom navigation',
+      image: AndroidTabBar
+    },
+    reactNativeImplementation: [
+      {
+        text: 'React Navigation Bottom Tabs',
+        link: 'https://reactnavigation.org/docs/bottom-tab-navigator'
+      },
+      {
+        text: 'React Navigation Material Bottom Tabs',
+        link: 'https://reactnavigation.org/docs/material-bottom-tab-navigator'
+      }
+    ],
+    comments: [
+      {
+        text: '“Top-level” refers to the highest level app architecture in terms of screens (see view types). “Tabs” would have been an incorrect word because tabs are used for something else (explained in next row), while Android’s “bottom navigation” refers only to the placement of the bar, which is misleading in terms of the function (does bottom refer to app architecture?) and why wouldn’t the navigation be placed somewhere else?'
+      },
+      {
+        text: 'Design of the Top-level Navigation Bar will be common across platforms',
+        variant: 'info'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'bar / tabs',
+    iOSComponent: {
+      name: 'Scope bars',
+      image: IOSTabs
+    },
+    androidComponent: {
+      name: 'Tabs',
+      image: AndroidTabs
+    },
+    reactNativeImplementation: [
+      {
+        text: 'React Navigation Material Top Tabs',
+        link: 'https://reactnavigation.org/docs/material-top-tab-navigator'
+      }
+    ],
+    comments: [
+      {
+        text: 'Tabs are generally a pattern used to organize/scope out content related to a screen into more easily digestible chunks. So when we use use segmented controls as a representation of tabs, we will make sure that they are styled vastly different than when they are used as a representation for radio buttons/checkboxes.'
+      },
+      {
+        text: 'Design of the Tabs Bar will be common across platforms',
+        variant: 'info'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'bar / search',
+    iOSComponent: {
+      name: 'n/a',
+      image: IOSSearchBar
+    },
+    androidComponent: {
+      name: 'n/a',
+      image: AndroidSearchBar
+    },
+    reactNativeImplementation: [
+      {
+        text: 'React Native Elements',
+        link: 'https://reactnativeelements.com/docs/components/searchbar'
+      },
+      {
+        text: 'React Native Paper',
+        link: 'https://callstack.github.io/react-native-paper/docs/components/Searchbar/'
+      },
+    ],
+    comments: [
+      {
+        text: 'A search bar is not explicitly defined on any platform, but appears on both as a distinct view that includes both a search field and additional buttons outside the field'
+      },
+      {
+        text: 'Design of Search Bars will be different across platforms as both platforms have a slightly different behavior in terms of canceling/going back.',
+        variant: 'caution'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'bar / status',
+    iOSComponent: {
+      name: 'Status bar',
+      image: IOSStatusBar
+    },
+    androidComponent: {
+      name: 'Android status bar',
+      image: AndroidStatusBar
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: 'Note that this is a component that will be defined in the design, but will be used for layout purposes. If the need arises, its slightly editable nature will be exploited to make it better suit the in-app experience.'
+      }
+    ]
+  },
+  {
+    reactNativeName: 'bar / home indicator',
+    iOSComponent: {
+      name: 'Home indicator bar',
+      image: IOSHomeIndicator
+    },
+    androidComponent: {
+      name: 'n/a'
+    },
+    reactNativeImplementation: [],
+    comments: [
+      {
+        text: 'Note that this is a component that will be defined in the design, but will be used strictly for layout purposes and is not editable.'
+      },
+      {
+        text: 'While some android phones have an “android navigation bar” as part of the display itself, the area covered by it is not included in the viewport.',
+        variant: 'info'
+      }
+    ]
+  },
 ]
