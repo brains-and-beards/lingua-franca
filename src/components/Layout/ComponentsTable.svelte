@@ -25,7 +25,7 @@
           <div class="flex flex-col  items-center">
             {el.iOSComponent.name}
             {#if el.iOSComponent.image}
-              <img src={el.iOSComponent.image} class='w-[100%] h-[100%] max-h-[300px] max-w-[200px]' alt='{el.iOSComponent.name}'>
+              <img src={el.iOSComponent.image} class='max-h-[200px] max-w-[100px]' alt='{el.iOSComponent.name}'>
             {/if}
           </div>
         </Cell>
