@@ -21,24 +21,25 @@
     {#each components as el}
       <Row class="border-2">
         <Cell class="flex justify-center align-middle p-2">{el.reactNativeName}</Cell>
+
         <Cell class="p-2">
-          <div class="flex flex-col  items-center">
+          <div class="flex flex-col items-center">
             {el.iOSComponent.name}
             {#if el.iOSComponent.image}
               <img src={el.iOSComponent.image} class='max-h-[200px] max-w-[100px]' alt='{el.iOSComponent.name}'>
             {/if}
           </div>
         </Cell>
-        <Cell class="p-2">
 
-          <div class="flex flex-col  items-center">
+        <Cell class="p-2">
+          <div class="flex flex-col items-center">
             {el.androidComponent.name}
             {#if el.androidComponent.image}
               <img src={el.androidComponent.image} class=' max-h-[200px] max-w-[100px]' alt={el.androidComponent.name}>
             {/if}
           </div>
-
         </Cell>
+
         <Cell class="p-2">
           <div class="flex flex-col items-start">
             {#if el.reactNativeImplementation?.length > 0}
@@ -52,26 +53,26 @@
             {/if}
           </div>
         </Cell>
+
         <Cell class="p-2">
-          {#each el.comments as comment}
-            {#if comment.variant === 'caution'}
+          {#each el.comments as {variant, text}}
+            {#if variant === 'caution'}
               <div class="bg-[#FD7E1468] flex p-2">
                 <img src={WarningIcon} class='w-[25px] h-[25px] mr-2'/>
-                <p>{comment.text}</p>
+                <p>{text}</p>
               </div>
-            {:else if comment.variant === 'warning'}
+            {:else if variant === 'warning'}
               <div class="bg-[#FD7E143A] flex p-2">
                 <img src={WarningIcon} class='w-[25px] h-[25px] mr-2'/>
-
-                <p>{comment.text}</p>
+                <p>{text}</p>
               </div>
-            {:else if comment.variant === 'info'}
+            {:else if variant === 'info'}
               <div class="bg-[#228BE656] flex p-2">
                 <img src={InfoIcon} class='w-[25px] h-[25px] mr-2'/>
-                <p>{comment.text}</p>
+                <p>{text}</p>
               </div>
             {:else }
-              <p>{comment.text}</p>
+              <p>{text}</p>
             {/if}
           {/each}
         </Cell>
