@@ -2,12 +2,50 @@
 // Component Imports
 import ComponentsTable from '@components/Layout/ComponentsTable.svelte'
 import Layout from '@components/Layout/LayoutWrapper.astro'
-import { Components } from '../assets/components'
+import {
+  ExternalComponents,
+  InputFields, ListComponents,
+  LowLevelViews,
+  ModalComponents,
+  NonModalComponents, ProgressIndicators,
+  UtilityComponents
+} from '../assets/components'
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <Layout>
-  <ComponentsTable components={Components} />
+  <h1> Modal dialogs </h1>
+  <ComponentsTable components={ModalComponents} />
+  <h1> Non-modal dialogs </h1>
+  <ComponentsTable components={NonModalComponents} />
+  <h1> Lower-level Views </h1>
+  <p>
+    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci, amet dolorum fugiat incidunt non rerum sequi ullam vel vero. Accusantium aspernatur incidunt labore magnam officiis placeat qui, tempora voluptas.</span>
+    <span>Ab accusamus aspernatur consequuntur dignissimos ducimus ipsam iusto laborum odit quae, quia quod repellendus sequi tempore veritatis voluptatum! Accusantium ad dolorem ducimus, eligendi expedita laudantium nihil quia quis ullam velit.</span>
+  </p>
+  <ComponentsTable components={LowLevelViews} />
+  <h1> Buttons, inputs and other components </h1>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid culpa dolor doloribus est ex numquam quia, quis suscipit tempora? Accusamus consequuntur cumque dolores laborum, provident quas similique. Doloribus, ipsam?
+  </p>
+  <ComponentsTable components={UtilityComponents} />
+  <h1> Input fields </h1>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid culpa dolor doloribus est ex numquam quia, quis suscipit tempora? Accusamus consequuntur cumque dolores laborum, provident quas similique. Doloribus, ipsam?
+  </p>
+  <ComponentsTable components={InputFields} />
+
+  <h1>Other components</h1>
+
+  <h1> Lists </h1>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid culpa dolor doloribus est ex numquam quia, quis suscipit tempora? Accusamus consequuntur cumque dolores laborum, provident quas similique. Doloribus, ipsam?
+  </p>
+  <ComponentsTable components={ListComponents} />
+  <h1> Progress indicators </h1>
+  <ComponentsTable components={ProgressIndicators} />
+  <h1> External (out-of-app) push notifications </h1>
+  <ComponentsTable components={ExternalComponents} />
 </Layout>

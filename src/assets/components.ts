@@ -80,7 +80,8 @@ export interface IComponent {
   reactNativeImplementation: Array<IImpementation>
   comments: Array<IComments>
 }
-export const Components: Array<IComponent> = [
+
+export const ModalComponents: Array<IComponent> = [
   {
     reactNativeName: 'dialog / modal / alert',
     iOSComponent: {
@@ -266,7 +267,10 @@ export const Components: Array<IComponent> = [
         variant: 'caution'
       }
     ]
-  },
+  }
+]
+
+export const NonModalComponents: Array<IComponent> = [
   {
     reactNativeName: 'dialog / non-modal / sheet',
     iOSComponent: {
@@ -374,7 +378,10 @@ export const Components: Array<IComponent> = [
         variant: 'info'
       }
     ]
-  },
+  }
+]
+
+export const LowLevelViews: Array<IComponent> = [
   {
     reactNativeName: 'bar / header',
     iOSComponent: {
@@ -527,7 +534,10 @@ export const Components: Array<IComponent> = [
         variant: 'info'
       }
     ]
-  },
+  }
+]
+
+export const UtilityComponents: Array<IComponent> = [
   {
     reactNativeName: 'button / utility / grabber',
     iOSComponent: {
@@ -600,7 +610,10 @@ export const Components: Array<IComponent> = [
         text: 'Although a non-existent on iOS, its function is unambiguous, so it will be used on both platforms. It’s use will be prominent in Canvas screens. However, we will not explicitly define it as a special type. It is still either a CTA or Utility button, but simply floats over content, rather than being part of the layout itself'
       }
     ]
-  },
+  }
+]
+
+export const InputComponents: Array<IComponent> = [
   {
     reactNativeName: 'input / control / switch',
     iOSComponent: {
@@ -725,7 +738,10 @@ export const Components: Array<IComponent> = [
         text: 'Well known pattern because it is also used extensively on the web, so we would use it on Android as well.'
       }
     ]
-  },
+  }
+]
+
+export const InputFields: Array<IComponent> = [
   {
     reactNativeName: 'input / field / text field',
     iOSComponent: {
@@ -744,7 +760,10 @@ export const Components: Array<IComponent> = [
           'We will keep designs and behavior consistent across platforms.'
       }
     ]
-  },
+  }
+]
+
+export const ListComponents: Array<IComponent> = [
   {
     reactNativeName: 'list item / actionable / accordion',
     iOSComponent: {
@@ -805,7 +824,10 @@ export const Components: Array<IComponent> = [
     },
     reactNativeImplementation: [],
     comments: []
-  },
+  }
+]
+
+export const ProgressIndicators: Array<IComponent> = [
   {
     reactNativeName: 'indicator / progress',
     iOSComponent: {
@@ -841,7 +863,10 @@ export const Components: Array<IComponent> = [
       }
     ],
     comments: []
-  },
+  }
+]
+
+export const ExternalComponents: Array<IComponent> = [
   {
     reactNativeName: 'notification/external',
     iOSComponent: {
