@@ -7,23 +7,27 @@
   export let components: Array<IComponent>
 </script>
 
-<DataTable table$aria-label="Components list"  class="max-w-75[vw] justify-center">
+<DataTable table$aria-label="Components list"  class="max-w-75[vw] justify-center px-[4rem] my-5">
   <Head>
-    <Row class="border-2">
-      <Cell class="w-1/5 border-2 max-w-1/5">React Native Name</Cell>
-      <Cell class="w-1/5 border-2 max-w-1/5">iOS Component</Cell>
-      <Cell class="w-1/5 border-2 max-w-1/5">Android Component</Cell>
-      <Cell class="w-1/5 border-2 max-w-1/5">React Native Implementation</Cell>
-      <Cell class="w-1/5 border-2 max-w-1/5">Comments</Cell>
+    <Row class="border-2 bg-gray-100 border-gray-100">
+      <Cell class="w-1/5 p-4">React Native Name</Cell>
+      <Cell class="w-1/5 p-4">iOS Component</Cell>
+      <Cell class="w-1/5 p-4">Android Component</Cell>
+      <Cell class="w-1/5 p-4">React Native Implementation</Cell>
+      <Cell class="w-1/5 p-4">Comments</Cell>
     </Row>
   </Head>
   <Body>
     {#each components as el}
-      <Row class="border-2">
-        <Cell class="flex justify-center align-middle p-2">{el.reactNativeName}</Cell>
+      <Row class="border-x-2 border-b-2 border-gray-100">
+        <Cell class="p-2">
+          <div class='nameCell'>
+          {el.reactNativeName}
+          </div>
+        </Cell>
 
         <Cell class="p-2">
-          <div class="flex flex-col items-center">
+          <div class="tableCell">
             {el.iOSComponent.name}
             {#if el.iOSComponent.image}
               <img src={el.iOSComponent.image} class='max-h-[200px] max-w-[100px]' alt='{el.iOSComponent.name}'>
@@ -32,7 +36,7 @@
         </Cell>
 
         <Cell class="p-2">
-          <div class="flex flex-col items-center">
+          <div class="tableCell">
             {el.androidComponent.name}
             {#if el.androidComponent.image}
               <img src={el.androidComponent.image} class=' max-h-[200px] max-w-[100px]' alt={el.androidComponent.name}>
@@ -41,7 +45,7 @@
         </Cell>
 
         <Cell class="p-2">
-          <div class="flex flex-col items-start">
+          <div class="tableCell">
             {#if el.reactNativeImplementation?.length > 0}
               {#each el.reactNativeImplementation as implementation}
                 <a href={implementation.link} class="text-blue-600 after:content-['_↗']">
@@ -54,7 +58,7 @@
           </div>
         </Cell>
 
-        <Cell class="p-2">
+        <Cell class="p-2 items-start">
           {#each el.comments as {variant, text}}
             {#if variant === 'caution'}
               <div class="bg-[#FD7E1468] flex p-2">
@@ -80,3 +84,16 @@
     {/each}
   </Body>
 </DataTable>
+
+<style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    .nameCell {
+      @apply flex justify-center align-middle p-2 items-center text-center;
+    }
+    .tableCell {
+      @apply flex flex-col items-center;
+    }
+</style>
