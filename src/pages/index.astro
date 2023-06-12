@@ -3,7 +3,7 @@
 import ComponentsTable from '@components/Layout/ComponentsTable.svelte'
 import Layout from '@components/Layout/LayoutWrapper.astro'
 import {
-  ExternalComponents,
+  ExternalComponents, InputComponents,
   InputFields, ListComponents,
   LowLevelViews,
   ModalComponents,
@@ -18,34 +18,89 @@ import {
 <Layout>
   <h1> Modal dialogs </h1>
   <ComponentsTable components={ModalComponents} />
+
   <h1> Non-modal dialogs </h1>
   <ComponentsTable components={NonModalComponents} />
-  <h1> Lower-level Views </h1>
-  <p>
-    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci, amet dolorum fugiat incidunt non rerum sequi ullam vel vero. Accusantium aspernatur incidunt labore magnam officiis placeat qui, tempora voluptas.</span>
-    <span>Ab accusamus aspernatur consequuntur dignissimos ducimus ipsam iusto laborum odit quae, quia quod repellendus sequi tempore veritatis voluptatum! Accusantium ad dolorem ducimus, eligendi expedita laudantium nihil quia quis ullam velit.</span>
-  </p>
+
+  <div class='mx-[5%]'>
+    <h1> Lower-level Views </h1>
+    <span>Currently we have only designated bars as lower-level Views for our internal classification. Similarly to the dialog views, native platforms provide particular guidance for the usage of bars. The general division is into:</span>
+    <ul class="list-disc ml-[1rem]">
+      <li>Header bars</li>
+      <li>Top-level navigation bars</li>
+      <li>Tabs bars</li>
+      <li>Utility bars</li>
+      <li>Search bars</li>
+      <li>Status bars (native, slightly editable)</li>
+      <li class='text-gray-400'>Home indicator bars (native, not editable)</li>
+    </ul>
+  </div>
   <ComponentsTable components={LowLevelViews} />
-  <h1> Buttons, inputs and other components </h1>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid culpa dolor doloribus est ex numquam quia, quis suscipit tempora? Accusamus consequuntur cumque dolores laborum, provident quas similique. Doloribus, ipsam?
-  </p>
+
+  <div class='mx-[5%]'>
+    <h1> Buttons, inputs and other components </h1>
+    <h2>Buttons</h2>
+    <p>Buttons we categorize into:</p>
+    <ul class="list-disc ml-[1rem]">
+      <li><b>CTA buttons</b> – buttons that call the user to an action; dedicated to the most important action(s) in a given top-level view. iOS recognizes the CTA button as a type, but weirdly, doesn’t give it much prominence</li>
+      <li><b>Utility buttons</b> – “low priority action button that is used to highlight useful functions. It is utilitarian, in that it’s designed to be useful or practical rather than attractive, not vying for attention like call-to-action buttons and taking its place further down in the visual hierarchy. A utility button is often used when there are multiple similar actions on a page or when there are tools or components that require additional function.” a handy definition we inherited from the Fabric Design System (company: finn.no)</li>
+    </ul>
+  </div>
   <ComponentsTable components={UtilityComponents} />
-  <h1> Input fields </h1>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid culpa dolor doloribus est ex numquam quia, quis suscipit tempora? Accusamus consequuntur cumque dolores laborum, provident quas similique. Doloribus, ipsam?
-  </p>
+
+  <div class='mx-[5%]'>
+    <h1>Inputs</h1>
+    <p>Two basic types: </p>
+    <ul class="list-disc ml-[1rem]">
+      <li>Controls</li>
+      <li>Fields</li>
+    </ul>
+    <h2>Input controls</h2>
+  </div>
+  <ComponentsTable components={InputComponents} />
+
+  <div class='mx-[5%]'>
+    <h1> Input fields </h1>
+    <p>
+      Fields are very ill-defined on both platforms. That is why we rely on the good ol' HTML specification of input types, which also influences the keyboard types that should pop up:
+    </p>
+    <ul class="list-disc">
+      <li>
+        Input fields that require a keyboard:
+        <ul class="list-disc ml-[1rem]">
+          <li>Email</li>
+          <li>Text</li>
+          <li>Telephone</li>
+          <li>Password</li>
+          <li>Number</li>
+          <li>Datalist (autocomplete)</li>
+          <li>Textarea</li>
+          <li>URL</li>
+          <li>Search</li>
+        </ul>
+      </li>
+
+      <li>
+        Input fields that require a selection via a picker of sorts:
+        <ul class="list-disc ml-[1rem]">
+          <li>Date</li>
+          <li>Time</li>
+          <li>Select</li>
+          <li>File</li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
   <ComponentsTable components={InputFields} />
 
   <h1>Other components</h1>
-
-  <h1> Lists </h1>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid culpa dolor doloribus est ex numquam quia, quis suscipit tempora? Accusamus consequuntur cumque dolores laborum, provident quas similique. Doloribus, ipsam?
-  </p>
+  <h2> Lists </h2>
   <ComponentsTable components={ListComponents} />
+
   <h1> Progress indicators </h1>
   <ComponentsTable components={ProgressIndicators} />
+
   <h1> External (out-of-app) push notifications </h1>
   <ComponentsTable components={ExternalComponents} />
 </Layout>
