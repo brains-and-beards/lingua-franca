@@ -21,7 +21,7 @@
     {#each components as el}
       <Row class="border-x-2 border-b-2 border-gray-100">
         <Cell class="p-2">
-          <div class='nameCell'>
+          <div class='firstCell'>
           {el.reactNativeName}
           </div>
         </Cell>
@@ -90,7 +90,7 @@
     @tailwind components;
     @tailwind utilities;
 
-    .nameCell {
+    .firstCell {
       @apply flex justify-center align-middle p-2 items-center text-center;
     }
     .tableCell {
