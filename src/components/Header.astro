@@ -1,0 +1,30 @@
+---
+const { currentPage } = Astro.props;
+---
+
+<header class="p-3 bg-slate-100 bg-opacity-80 backdrop-blur-md border-b text-slate-900">
+  <nav title="Top Navigation" class="max-w-7xl mx-auto flex justify-between items-center px-4">
+    <div>
+      <a class="text-lg font-medium" href="/">
+        <h1>
+          *Company name* Design Language System
+        </h1>
+      </a>
+    </div>
+    <div class="flex gap-2">
+
+      <!-- <button onclick="toggleDarkMode()">theme</button> -->
+        <a title="Github" class="opacity-80 hover:opacity-100 hover:bg-slate-200 p-2 rounded-full transition-colors" href={'https://github.com/brains-and-beards'}>
+          <img class="h-7" src="/github.svg" alt="github logo">
+        </a>
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  // function toggleDarkMode() {
+  // 	const body = document.body;
+  // 	body.classList.toggle('dark');
+  // 	console.log('dark mode toggled');
+  // }
+</script>

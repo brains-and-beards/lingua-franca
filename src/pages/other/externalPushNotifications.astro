@@ -1,0 +1,24 @@
+---
+// Component Imports
+import ComponentsTable from '@components/Layout/ComponentsTable.svelte'
+import Layout from '@components/Layout/LayoutWrapper.astro'
+import { ExternalComponents } from '@assets/components'
+---
+
+<Layout>
+  <h1> External (out-of-app) push notifications </h1>
+  <ComponentsTable components={ExternalComponents} />
+</Layout>
+
+<style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    h1 {
+        @apply my-8 text-2xl font-extrabold text-gray-900 md:text-2xl lg:text-3xl mx-[8rem] !important
+    }
+    h2 {
+        @apply my-6 text-xl font-extrabold text-gray-900 lg:text-2xl mx-[8rem] !important
+    }
+</style>
