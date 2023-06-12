@@ -10,6 +10,6 @@ export const SIDEBAR = [
   { text: 'Input Fields', link: '/utility/inputFields' },
   { text: 'Other components', header: true },
   { text: 'Lists', link: '/other/lists' },
-  { text: 'Input Fields', link: '/other/lists' },
+  { text: 'Progress indicators', link: '/other/progressIndicators' },
   { text: 'External (out-of-app) push notifications', link: '/other/externalPushNotifications' }
 ]
