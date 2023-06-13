@@ -3,11 +3,14 @@
 import ComponentsTable from '@components/Layout/ComponentsTable.svelte'
 import Layout from '@components/Layout/LayoutWrapper.astro'
 import {
-  ExternalComponents, InputComponents,
-  InputFields, ListComponents,
+  ExternalComponents,
+  InputComponents,
+  InputFields,
+  ListComponents,
   LowLevelViews,
   ModalComponents,
-  NonModalComponents, ProgressIndicators,
+  NonModalComponents,
+  ProgressIndicators,
   UtilityComponents
 } from '../assets/components'
 
@@ -16,42 +19,57 @@ import {
 ---
 
 <Layout>
-  <h1> Modal dialogs </h1>
+  <h1>Modal dialogs</h1>
   <ComponentsTable components={ModalComponents} />
 
-  <h1> Non-modal dialogs </h1>
+  <h1>Non-modal dialogs</h1>
   <ComponentsTable components={NonModalComponents} />
 
-  <div class='mx-[5%]'>
-    <h1> Lower-level Views </h1>
-    <span>Currently we have only designated bars as lower-level Views for our internal classification. Similarly to the dialog views, native platforms provide particular guidance for the usage of bars. The general division is into:</span>
-    <ul class="list-disc ml-[1rem]">
+  <div class="mx-[5%]">
+    <h1>Lower-level Views</h1>
+    <span
+      >Currently we have only designated bars as lower-level Views for our internal classification.
+      Similarly to the dialog views, native platforms provide particular guidance for the usage of
+      bars. The general division is into:</span
+    >
+    <ul class="ml-[1rem] list-disc">
       <li>Header bars</li>
       <li>Top-level navigation bars</li>
       <li>Tabs bars</li>
       <li>Utility bars</li>
       <li>Search bars</li>
       <li>Status bars (native, slightly editable)</li>
-      <li class='text-gray-400'>Home indicator bars (native, not editable)</li>
+      <li class="text-gray-400">Home indicator bars (native, not editable)</li>
     </ul>
   </div>
   <ComponentsTable components={LowLevelViews} />
 
-  <div class='mx-[5%]'>
-    <h1> Buttons, inputs and other components </h1>
+  <div class="mx-[5%]">
+    <h1>Buttons, inputs and other components</h1>
     <h2>Buttons</h2>
     <p>Buttons we categorize into:</p>
-    <ul class="list-disc ml-[1rem]">
-      <li><b>CTA buttons</b> – buttons that call the user to an action; dedicated to the most important action(s) in a given top-level view. iOS recognizes the CTA button as a type, but weirdly, doesn’t give it much prominence</li>
-      <li><b>Utility buttons</b> – “low priority action button that is used to highlight useful functions. It is utilitarian, in that it’s designed to be useful or practical rather than attractive, not vying for attention like call-to-action buttons and taking its place further down in the visual hierarchy. A utility button is often used when there are multiple similar actions on a page or when there are tools or components that require additional function.” a handy definition we inherited from the Fabric Design System (company: finn.no)</li>
+    <ul class="ml-[1rem] list-disc">
+      <li>
+        <b>CTA buttons</b> – buttons that call the user to an action; dedicated to the most important
+        action(s) in a given top-level view. iOS recognizes the CTA button as a type, but weirdly, doesn’t
+        give it much prominence
+      </li>
+      <li>
+        <b>Utility buttons</b> – “low priority action button that is used to highlight useful functions.
+        It is utilitarian, in that it’s designed to be useful or practical rather than attractive, not
+        vying for attention like call-to-action buttons and taking its place further down in the visual
+        hierarchy. A utility button is often used when there are multiple similar actions on a page or
+        when there are tools or components that require additional function.” a handy definition we inherited
+        from the Fabric Design System (company: finn.no)
+      </li>
     </ul>
   </div>
   <ComponentsTable components={UtilityComponents} />
 
-  <div class='mx-[5%]'>
+  <div class="mx-[5%]">
     <h1>Inputs</h1>
-    <p>Two basic types: </p>
-    <ul class="list-disc ml-[1rem]">
+    <p>Two basic types:</p>
+    <ul class="ml-[1rem] list-disc">
       <li>Controls</li>
       <li>Fields</li>
     </ul>
@@ -59,15 +77,16 @@ import {
   </div>
   <ComponentsTable components={InputComponents} />
 
-  <div class='mx-[5%]'>
-    <h1> Input fields </h1>
+  <div class="mx-[5%]">
+    <h1>Input fields</h1>
     <p>
-      Fields are very ill-defined on both platforms. That is why we rely on the good ol' HTML specification of input types, which also influences the keyboard types that should pop up:
+      Fields are very ill-defined on both platforms. That is why we rely on the good ol' HTML
+      specification of input types, which also influences the keyboard types that should pop up:
     </p>
     <ul class="list-disc">
       <li>
         Input fields that require a keyboard:
-        <ul class="list-disc ml-[1rem]">
+        <ul class="ml-[1rem] list-disc">
           <li>Email</li>
           <li>Text</li>
           <li>Telephone</li>
@@ -82,25 +101,24 @@ import {
 
       <li>
         Input fields that require a selection via a picker of sorts:
-        <ul class="list-disc ml-[1rem]">
+        <ul class="ml-[1rem] list-disc">
           <li>Date</li>
           <li>Time</li>
           <li>Select</li>
           <li>File</li>
         </ul>
       </li>
-
     </ul>
   </div>
   <ComponentsTable components={InputFields} />
 
   <h1>Other components</h1>
-  <h2> Lists </h2>
+  <h2>Lists</h2>
   <ComponentsTable components={ListComponents} />
 
-  <h1> Progress indicators </h1>
+  <h1>Progress indicators</h1>
   <ComponentsTable components={ProgressIndicators} />
 
-  <h1> External (out-of-app) push notifications </h1>
+  <h1>External (out-of-app) push notifications</h1>
   <ComponentsTable components={ExternalComponents} />
 </Layout>

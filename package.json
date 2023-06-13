@@ -8,7 +8,7 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+		"lint": "eslint . --ext .ts,.tsx,.astro,.svelte"
 	},
 	"dependencies": {
 		"@astrojs/netlify": "^2.2.3",
