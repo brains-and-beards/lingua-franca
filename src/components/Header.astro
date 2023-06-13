@@ -1,22 +1,22 @@
 ---
-const { currentPage } = Astro.props;
 ---
 
-<header class="p-3 bg-slate-100 bg-opacity-80 backdrop-blur-md border-b text-slate-900">
-  <nav title="Top Navigation" class="max-w-7xl mx-auto flex justify-between items-center px-4">
+<header class="border-b bg-slate-100 bg-opacity-80 p-3 text-slate-900 backdrop-blur-md">
+  <nav title="Top Navigation" class="mx-auto flex max-w-7xl items-center justify-between px-4">
     <div>
       <a class="text-lg font-medium" href="/">
-        <h1>
-          *Company name* Design Language System
-        </h1>
+        <h1>*Company name* Design Language System</h1>
       </a>
     </div>
     <div class="flex gap-2">
-
       <!-- <button onclick="toggleDarkMode()">theme</button> -->
-        <a title="Github" class="opacity-80 hover:opacity-100 hover:bg-slate-200 p-2 rounded-full transition-colors" href={'https://github.com/brains-and-beards'}>
-          <img class="h-7" src="/github.svg" alt="github logo">
-        </a>
+      <a
+        title="Github"
+        class="rounded-full p-2 opacity-80 transition-colors hover:bg-slate-200 hover:opacity-100"
+        href={'https://github.com/brains-and-beards'}
+      >
+        <img class="h-7" src="/github.svg" alt="github logo" />
+      </a>
     </div>
   </nav>
 </header>

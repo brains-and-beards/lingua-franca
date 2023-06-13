@@ -6,14 +6,25 @@ import { UtilityComponents } from '@assets/components'
 ---
 
 <Layout>
-  <h1> Buttons, inputs and other components </h1>
+  <h1>Buttons, inputs and other components</h1>
   <h2>Buttons</h2>
 
-  <div class='mx-[8rem]'>
+  <div class="mx-[8rem]">
     <p>Buttons we categorize into:</p>
-    <ul class="list-disc ml-[1.5rem]">
-      <li><b>CTA buttons</b> – buttons that call the user to an action; dedicated to the most important action(s) in a given top-level view. iOS recognizes the CTA button as a type, but weirdly, doesn’t give it much prominence</li>
-      <li><b>Utility buttons</b> – “low priority action button that is used to highlight useful functions. It is utilitarian, in that it’s designed to be useful or practical rather than attractive, not vying for attention like call-to-action buttons and taking its place further down in the visual hierarchy. A utility button is often used when there are multiple similar actions on a page or when there are tools or components that require additional function.” a handy definition we inherited from the Fabric Design System (company: finn.no)</li>
+    <ul class="ml-[1.5rem] list-disc">
+      <li>
+        <b>CTA buttons</b> – buttons that call the user to an action; dedicated to the most important
+        action(s) in a given top-level view. iOS recognizes the CTA button as a type, but weirdly, doesn’t
+        give it much prominence
+      </li>
+      <li>
+        <b>Utility buttons</b> – “low priority action button that is used to highlight useful functions.
+        It is utilitarian, in that it’s designed to be useful or practical rather than attractive, not
+        vying for attention like call-to-action buttons and taking its place further down in the visual
+        hierarchy. A utility button is often used when there are multiple similar actions on a page or
+        when there are tools or components that require additional function.” a handy definition we inherited
+        from the Fabric Design System (company: finn.no)
+      </li>
     </ul>
   </div>
 
@@ -21,14 +32,14 @@ import { UtilityComponents } from '@assets/components'
 </Layout>
 
 <style>
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 
-    h1 {
-        @apply my-8 text-2xl font-extrabold text-gray-900 md:text-2xl lg:text-3xl mx-[8rem] !important
-    }
-    h2 {
-        @apply my-6 text-xl font-extrabold text-gray-900 lg:text-2xl mx-[8rem] !important
-    }
+  h1 {
+    @apply mx-[8rem] my-8 text-2xl font-extrabold text-gray-900 md:text-2xl lg:text-3xl !important;
+  }
+  h2 {
+    @apply mx-[8rem] my-6 text-xl font-extrabold text-gray-900 lg:text-2xl !important;
+  }
 </style>

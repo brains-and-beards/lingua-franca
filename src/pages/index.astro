@@ -1,46 +1,92 @@
 ---
 // Component Imports
-import ComponentsTable from '@components/Layout/ComponentsTable.svelte'
 import Layout from '@components/Layout/LayoutWrapper.astro'
-import {
-  ExternalComponents, InputComponents,
-  InputFields, ListComponents,
-  LowLevelViews,
-  ModalComponents,
-  NonModalComponents, ProgressIndicators,
-  UtilityComponents
-} from '../assets/components'
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <Layout>
- <h1> On this page will be general info about site, some abbreviations, schemes <h1/>
-   <div>
-     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus et placeat vero. Ab, architecto, deleniti
-     dolores ducimus earum inventore, iusto libero modi odio perferendis quaerat quia quidem repudiandae sapiente ullam.
-   </div>
-   <div>
-     Atque autem beatae corporis doloremque eligendi, eos esse et fugit, id iusto libero magni maiores nisi odit
-     omnis pariatur perspiciatis praesentium provident quae quos repellendus similique sint! Accusantium, natus qui!
-   </div>
-   <div>
-     A accusamus accusantium beatae blanditiis cum cumque debitis distinctio doloremque dolores doloribus eius
-     impedit in iste itaque laboriosam libero, molestias nisi odio officia placeat quam sequi soluta ullam voluptates
-     voluptatibus.
-   </div>
+  <div class='max-w-5xl'>
+  <div>
+    This document is concerned with exploring user interface patterns in the domains of navigation
+    and interaction, and making decisions around the selection of specific patterns that
+    simultaneously cater to users of both native mobile platforms we are developing the app for –
+    iOS and Android. It is worth noting that for the time being, we are not developing for the web
+    as a platform.
+  </div>
+
+  <h2>Background</h2>
+  <div>
+    We have made the decision to develop for both mobile platforms from a single codebase by
+    utilizing React Native, presumably for the benefit of optimizing engineering resources and
+    speeding up development. It would be tempting to think this provides a benefit for the user
+    because the experience is consistent across platforms. However, platforms are rarely compared
+    and used simultaneously, and from a user experience perspective, this “cross-platform
+    consistency” is rather a pitfall than a benefit because some interaction and navigation patterns
+    are very specific to each platform. This means the following:
+    <ul class="ml-[1.5rem] list-disc">
+      <li>
+        Utilizing a pattern exclusive to one platform and deploying to the other as well (as we are
+        using a single codebase) could create friction for the users of the second platform since
+        they are simply not familiar with it.
+      </li>
+      <li>
+        There are cases where both platforms solve the same problem by utilizing slightly different
+        patterns. In these cases, we might want to diverge by designing and developing different
+        implementations that follow the native platform’s recommendations.
+      </li>
+    </ul>
+  </div>
+
+  <h2>Goals</h2>
+  <div>
+    Given the background of the topic, the goals of this document are the following:
+    <ol class="ml-[1.5rem] list-decimal">
+      <li>
+        Provide guidance for designers:
+        <ul class="ml-[1.5rem] list-disc">
+          <li>
+            Identify the discrepancies and green-light the patterns that we could deploy without the
+            risk of introducing friction for our customers.
+          </li>
+          <li>
+            Conceptually define the “gray areas” where neither platform provided guidance, but are
+            still very important in order to create more a coherent experience for our customers,
+            and ensure same/similar problems are solved consistently throughout the whole app.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Serve as a dictionary in designer-engineer collaboration. This is especially important
+        because in the cross-platform world we have designers and engineers coming from different
+        backgrounds – some have been specialized in iOS design and development, some in Android,
+        some in web - and everybody speaks a slightly different language when interaction and
+        navigation patterns are concerned.
+      </li>
+    </ol>
+    <div class="mt-[1rem]">
+      The document will deal with the following concepts:
+      <ul class="ml-[1.5rem] list-disc">
+        <li>View types and transitions between them</li>
+        <li>Buttons, inputs and other components</li>
+        <li>High-level view assembly</li>
+        <li>Navigation and transitions</li>
+      </ul>
+    </div>
+  </div>
+  </div>
 </Layout>
 
 <style>
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 
-    h1 {
-        @apply my-8 text-2xl font-extrabold text-gray-900 md:text-2xl lg:text-3xl mx-[8rem] !important
-    }
-    h2 {
-        @apply my-6 text-xl font-extrabold text-gray-900 lg:text-2xl mx-[8rem] !important
-    }
+  h1 {
+    @apply mx-[2rem] my-8 text-2xl font-extrabold text-gray-900 md:text-2xl lg:text-3xl !important;
+  }
+  h2 {
+    @apply mx-[1rem] my-6 text-xl font-extrabold text-gray-900 lg:text-2xl !important;
+  }
 </style>
