@@ -1,0 +1,82 @@
+<script lang="ts">
+  import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
+  import type { IComponent } from "@assets/components";
+  import InfoIcon from '@assets/icons/info.svg'
+  import WarningIcon from '@assets/icons/warning.png'
+
+  export let components: Array<IComponent>
+</script>
+
+<DataTable table$aria-label="Components list"  class="max-w-75[vw] justify-center">
+  <Head>
+    <Row class="border-2">
+      <Cell class="w-1/5 border-2 max-w-1/5">React Native Name</Cell>
+      <Cell class="w-1/5 border-2 max-w-1/5">iOS Component</Cell>
+      <Cell class="w-1/5 border-2 max-w-1/5">Android Component</Cell>
+      <Cell class="w-1/5 border-2 max-w-1/5">React Native Implementation</Cell>
+      <Cell class="w-1/5 border-2 max-w-1/5">Comments</Cell>
+    </Row>
+  </Head>
+  <Body>
+    {#each components as el}
+      <Row class="border-2">
+        <Cell class="flex justify-center align-middle p-2">{el.reactNativeName}</Cell>
+
+        <Cell class="p-2">
+          <div class="flex flex-col items-center">
+            {el.iOSComponent.name}
+            {#if el.iOSComponent.image}
+              <img src={el.iOSComponent.image} class='max-h-[200px] max-w-[100px]' alt='{el.iOSComponent.name}'>
+            {/if}
+          </div>
+        </Cell>
+
+        <Cell class="p-2">
+          <div class="flex flex-col items-center">
+            {el.androidComponent.name}
+            {#if el.androidComponent.image}
+              <img src={el.androidComponent.image} class=' max-h-[200px] max-w-[100px]' alt={el.androidComponent.name}>
+            {/if}
+          </div>
+        </Cell>
+
+        <Cell class="p-2">
+          <div class="flex flex-col items-start">
+            {#if el.reactNativeImplementation?.length > 0}
+              {#each el.reactNativeImplementation as implementation}
+                <a href={implementation.link} class="text-blue-600 after:content-['_↗']">
+                  {implementation.text}
+                </a>
+              {/each}
+              {:else}
+              <p>/</p>
+            {/if}
+          </div>
+        </Cell>
+
+        <Cell class="p-2">
+          {#each el.comments as {variant, text}}
+            {#if variant === 'caution'}
+              <div class="bg-[#FD7E1468] flex p-2">
+                <img src={WarningIcon} class='w-[25px] h-[25px] mr-2'/>
+                <p>{text}</p>
+              </div>
+            {:else if variant === 'warning'}
+              <div class="bg-[#FD7E143A] flex p-2">
+                <img src={WarningIcon} class='w-[25px] h-[25px] mr-2'/>
+                <p>{text}</p>
+              </div>
+            {:else if variant === 'info'}
+              <div class="bg-[#228BE656] flex p-2">
+                <img src={InfoIcon} class='w-[25px] h-[25px] mr-2'/>
+                <p>{text}</p>
+              </div>
+            {:else }
+              <p>{text}</p>
+            {/if}
+          {/each}
+        </Cell>
+      </Row>
+    {/each}
+  </Body>
+</DataTable>
