@@ -1,0 +1,24 @@
+---
+import ComponentsTable from '@components/Layout/ComponentsTable.svelte'
+import Layout from '@components/Layout/LayoutWrapper.astro'
+import { ProgressIndicators } from '@assets/components'
+---
+
+<Layout>
+  <h1>Progress indicators</h1>
+
+  <ComponentsTable components={ProgressIndicators} />
+</Layout>
+
+<style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  h1 {
+    @apply mx-[8rem] my-8 text-2xl font-extrabold text-gray-900 md:text-2xl lg:text-3xl !important;
+  }
+  h2 {
+    @apply mx-[8rem] my-6 text-xl font-extrabold text-gray-900 lg:text-2xl !important;
+  }
+</style>

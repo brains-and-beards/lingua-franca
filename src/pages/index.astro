@@ -1,124 +1,88 @@
 ---
-// Component Imports
-import ComponentsTable from '@components/Layout/ComponentsTable.svelte'
 import Layout from '@components/Layout/LayoutWrapper.astro'
-import {
-  ExternalComponents,
-  InputComponents,
-  InputFields,
-  ListComponents,
-  LowLevelViews,
-  ModalComponents,
-  NonModalComponents,
-  ProgressIndicators,
-  UtilityComponents
-} from '../assets/components'
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <Layout>
-  <h1>Modal dialogs</h1>
-  <ComponentsTable components={ModalComponents} />
-
-  <h1>Non-modal dialogs</h1>
-  <ComponentsTable components={NonModalComponents} />
-
-  <div class="mx-[5%]">
-    <h1>Lower-level Views</h1>
-    <span
-      >Currently we have only designated bars as lower-level Views for our internal classification.
-      Similarly to the dialog views, native platforms provide particular guidance for the usage of
-      bars. The general division is into:</span
-    >
-    <ul class="ml-[1rem] list-disc">
-      <li>Header bars</li>
-      <li>Top-level navigation bars</li>
-      <li>Tabs bars</li>
-      <li>Utility bars</li>
-      <li>Search bars</li>
-      <li>Status bars (native, slightly editable)</li>
-      <li class="text-gray-400">Home indicator bars (native, not editable)</li>
-    </ul>
+  <div class='max-w-5xl'>
+  <div>
+    This document is concerned with exploring user interface patterns in the domains of navigation
+    and interaction, and making decisions around the selection of specific patterns that
+    simultaneously cater to users of both native mobile platforms we are developing the app for –
+    iOS and Android. It is worth noting that for the time being, we are not developing for the web
+    as a platform.
   </div>
-  <ComponentsTable components={LowLevelViews} />
 
-  <div class="mx-[5%]">
-    <h1>Buttons, inputs and other components</h1>
-    <h2>Buttons</h2>
-    <p>Buttons we categorize into:</p>
-    <ul class="ml-[1rem] list-disc">
+  <h2>Background</h2>
+  <div>
+    We have made the decision to develop for both mobile platforms from a single codebase by
+    utilizing React Native, presumably for the benefit of optimizing engineering resources and
+    speeding up development. It would be tempting to think this provides a benefit for the user
+    because the experience is consistent across platforms. However, platforms are rarely compared
+    and used simultaneously, and from a user experience perspective, this “cross-platform
+    consistency” is rather a pitfall than a benefit because some interaction and navigation patterns
+    are very specific to each platform. This means the following:
+    <ul class="ml-[1.5rem] list-disc">
       <li>
-        <b>CTA buttons</b> – buttons that call the user to an action; dedicated to the most important
-        action(s) in a given top-level view. iOS recognizes the CTA button as a type, but weirdly, doesn’t
-        give it much prominence
+        Utilizing a pattern exclusive to one platform and deploying to the other as well (as we are
+        using a single codebase) could create friction for the users of the second platform since
+        they are simply not familiar with it.
       </li>
       <li>
-        <b>Utility buttons</b> – “low priority action button that is used to highlight useful functions.
-        It is utilitarian, in that it’s designed to be useful or practical rather than attractive, not
-        vying for attention like call-to-action buttons and taking its place further down in the visual
-        hierarchy. A utility button is often used when there are multiple similar actions on a page or
-        when there are tools or components that require additional function.” a handy definition we inherited
-        from the Fabric Design System (company: finn.no)
+        There are cases where both platforms solve the same problem by utilizing slightly different
+        patterns. In these cases, we might want to diverge by designing and developing different
+        implementations that follow the native platform’s recommendations.
       </li>
     </ul>
   </div>
-  <ComponentsTable components={UtilityComponents} />
 
-  <div class="mx-[5%]">
-    <h1>Inputs</h1>
-    <p>Two basic types:</p>
-    <ul class="ml-[1rem] list-disc">
-      <li>Controls</li>
-      <li>Fields</li>
-    </ul>
-    <h2>Input controls</h2>
-  </div>
-  <ComponentsTable components={InputComponents} />
-
-  <div class="mx-[5%]">
-    <h1>Input fields</h1>
-    <p>
-      Fields are very ill-defined on both platforms. That is why we rely on the good ol' HTML
-      specification of input types, which also influences the keyboard types that should pop up:
-    </p>
-    <ul class="list-disc">
+  <h2>Goals</h2>
+  <div>
+    Given the background of the topic, the goals of this document are the following:
+    <ol class="ml-[1.5rem] list-decimal">
       <li>
-        Input fields that require a keyboard:
-        <ul class="ml-[1rem] list-disc">
-          <li>Email</li>
-          <li>Text</li>
-          <li>Telephone</li>
-          <li>Password</li>
-          <li>Number</li>
-          <li>Datalist (autocomplete)</li>
-          <li>Textarea</li>
-          <li>URL</li>
-          <li>Search</li>
+        Provide guidance for designers:
+        <ul class="ml-[1.5rem] list-disc">
+          <li>
+            Identify the discrepancies and green-light the patterns that we could deploy without the
+            risk of introducing friction for our customers.
+          </li>
+          <li>
+            Conceptually define the “gray areas” where neither platform provided guidance, but are
+            still very important in order to create more a coherent experience for our customers,
+            and ensure same/similar problems are solved consistently throughout the whole app.
+          </li>
         </ul>
       </li>
-
       <li>
-        Input fields that require a selection via a picker of sorts:
-        <ul class="ml-[1rem] list-disc">
-          <li>Date</li>
-          <li>Time</li>
-          <li>Select</li>
-          <li>File</li>
-        </ul>
+        Serve as a dictionary in designer-engineer collaboration. This is especially important
+        because in the cross-platform world we have designers and engineers coming from different
+        backgrounds – some have been specialized in iOS design and development, some in Android,
+        some in web - and everybody speaks a slightly different language when interaction and
+        navigation patterns are concerned.
       </li>
-    </ul>
+    </ol>
+    <div class="mt-[1rem]">
+      The document will deal with the following concepts:
+      <ul class="ml-[1.5rem] list-disc">
+        <li>View types and transitions between them</li>
+        <li>Buttons, inputs and other components</li>
+        <li>High-level view assembly</li>
+        <li>Navigation and transitions</li>
+      </ul>
+    </div>
   </div>
-  <ComponentsTable components={InputFields} />
-
-  <h1>Other components</h1>
-  <h2>Lists</h2>
-  <ComponentsTable components={ListComponents} />
-
-  <h1>Progress indicators</h1>
-  <ComponentsTable components={ProgressIndicators} />
-
-  <h1>External (out-of-app) push notifications</h1>
-  <ComponentsTable components={ExternalComponents} />
+  </div>
 </Layout>
+
+<style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  h1 {
+    @apply mx-[2rem] my-8 text-2xl font-extrabold text-gray-900 md:text-2xl lg:text-3xl !important;
+  }
+  h2 {
+    @apply mx-[1rem] my-6 text-xl font-extrabold text-gray-900 lg:text-2xl !important;
+  }
+</style>

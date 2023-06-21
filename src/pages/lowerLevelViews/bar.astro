@@ -1,0 +1,40 @@
+---
+import ComponentsTable from '@components/Layout/ComponentsTable.svelte'
+import Layout from '@components/Layout/LayoutWrapper.astro'
+import { LowLevelViews } from '@assets/components'
+---
+
+<Layout>
+  <h1>Lower-level Views</h1>
+  <div class="mx-[8rem]">
+    <span
+      >Currently we have only designated bars as lower-level Views for our internal classification.
+      Similarly to the dialog views, native platforms provide particular guidance for the usage of
+      bars. The general division is into:</span
+    >
+    <ul class="ml-[1.5rem] list-disc">
+      <li>Header bars</li>
+      <li>Top-level navigation bars</li>
+      <li>Tabs bars</li>
+      <li>Utility bars</li>
+      <li>Search bars</li>
+      <li>Status bars (native, slightly editable)</li>
+      <li class="text-gray-400">Home indicator bars (native, not editable)</li>
+    </ul>
+  </div>
+
+  <ComponentsTable components={LowLevelViews} />
+</Layout>
+
+<style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  h1 {
+    @apply mx-[8rem] my-8 text-2xl font-extrabold text-gray-900 md:text-2xl lg:text-3xl !important;
+  }
+  h2 {
+    @apply mx-[8rem] my-6 text-xl font-extrabold text-gray-900 lg:text-2xl !important;
+  }
+</style>

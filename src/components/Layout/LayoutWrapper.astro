@@ -1,5 +1,10 @@
 ---
+import Header from '../Header.astro'
+import LeftSidebar from '../LeftSidebar.astro'
+
 const title = import.meta.env.TITLE
+
+const currentPage = new URL(Astro.request.url).pathname
 ---
 
 <html lang="en">
@@ -8,19 +13,23 @@ const title = import.meta.env.TITLE
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <style>
-      html,
-      body {
-        font-family: system-ui;
-        margin: 0;
-      }
-      body {
-        padding: 2rem;
-      }
-    </style>
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <div class="sticky top-0 z-10 w-full">
+      <Header currentPage={currentPage} />
+    </div>
+    <div class="grid grid-cols-12">
+      <div class="sticky top-0 col-span-3 flex h-screen pt-12">
+        <div class="ml-auto">
+          <LeftSidebar currentPage={currentPage} />
+        </div>
+      </div>
+      <main class="col-span-9 overflow-auto px-8 py-4 pb-32">
+        <div class="content">
+          <slot />
+        </div>
+      </main>
+    </div>
   </body>
 </html>

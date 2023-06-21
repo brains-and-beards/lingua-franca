@@ -1,0 +1,55 @@
+---
+import ComponentsTable from '@components/Layout/ComponentsTable.svelte'
+import Layout from '@components/Layout/LayoutWrapper.astro'
+import { InputFields } from '@assets/components'
+---
+
+<Layout>
+  <h1>Input fields</h1>
+  <div class="mx-[8rem]">
+    <p>
+      Fields are very ill-defined on both platforms. That is why we rely on the good ol' HTML
+      specification of input types, which also influences the keyboard types that should pop up:
+    </p>
+    <ul class="ml-[1.5rem] list-disc">
+      <li>
+        Input fields that require a keyboard:
+        <ul class="ml-[1rem] list-disc">
+          <li>Email</li>
+          <li>Text</li>
+          <li>Telephone</li>
+          <li>Password</li>
+          <li>Number</li>
+          <li>Datalist (autocomplete)</li>
+          <li>Textarea</li>
+          <li>URL</li>
+          <li>Search</li>
+        </ul>
+      </li>
+
+      <li>
+        Input fields that require a selection via a picker of sorts:
+        <ul class="ml-[1rem] list-disc">
+          <li>Date</li>
+          <li>Time</li>
+          <li>Select</li>
+          <li>File</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <ComponentsTable components={InputFields} />
+</Layout>
+
+<style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  h1 {
+    @apply mx-[8rem] my-8 text-2xl font-extrabold text-gray-900 md:text-2xl lg:text-3xl !important;
+  }
+  h2 {
+    @apply mx-[8rem] my-6 text-xl font-extrabold text-gray-900 lg:text-2xl !important;
+  }
+</style>
