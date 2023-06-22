@@ -1,8 +1,6 @@
 ---
-import Header from '../Header.astro'
-import LeftSidebar from '../LeftSidebar.astro'
-
-const title = import.meta.env.TITLE
+import Header from './Header.astro'
+import LeftSidebar from './LeftSidebar.astro'
 
 const currentPage = new URL(Astro.request.url).pathname
 ---
@@ -13,7 +11,7 @@ const currentPage = new URL(Astro.request.url).pathname
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
+    <title>Design Language System</title>
   </head>
   <body>
     <div class="sticky top-0 z-10 w-full">

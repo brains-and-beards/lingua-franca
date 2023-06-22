@@ -62,17 +62,17 @@
           {#each el.comments as {variant, text}}
             {#if variant === 'caution'}
               <div class="bg-[#FD7E1468] flex p-2">
-                <img src={WarningIcon} class='w-[25px] h-[25px] mr-2'/>
+                <img src={WarningIcon} class='w-[25px] h-[25px] mr-2' alt='warning'/>
                 <p>{text}</p>
               </div>
             {:else if variant === 'warning'}
               <div class="bg-[#FD7E143A] flex p-2">
-                <img src={WarningIcon} class='w-[25px] h-[25px] mr-2'/>
+                <img src={WarningIcon} class='w-[25px] h-[25px] mr-2' alt='warning'/>
                 <p>{text}</p>
               </div>
             {:else if variant === 'info'}
               <div class="bg-[#228BE656] flex p-2">
-                <img src={InfoIcon} class='w-[25px] h-[25px] mr-2'/>
+                <img src={InfoIcon} class='w-[25px] h-[25px] mr-2' alt='information'/>
                 <p>{text}</p>
               </div>
             {:else }
